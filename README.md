@@ -1,48 +1,47 @@
 # Unity MCP Test Loop
 
-Unity MCP Test Loop is a hosted remote MCP for Unity-MCP.
+Let agents test Unity scenes and return review-ready receipts.
 
-This repository is a public documentation project for Unity MCP Test Loop. Its structure follows the public documentation pattern used by [MiroFish](https://github.com/clauxel/MiroFish): a short front door, a clear reading order, practical guides, reference pages, and a public-safe boundary.
+Unity MCP Test Loop is a paid hosted remote MCP for Unity-MCP. It exposes Streamable HTTP tool calls, bearer-token access, public server-card metadata, usage logs, and receipt-oriented JSON for AI agent workflows.
 
-## Start Here
+## Public Endpoints
 
-- Website: https://unitymcptest.clauxel.com/?utm_source=github&utm_medium=documentation&utm_campaign=unitymcptest_public_docs&utm_content=readme_home
-- Pricing: https://unitymcptest.clauxel.com/pricing/?utm_source=github&utm_medium=documentation&utm_campaign=unitymcptest_public_docs&utm_content=readme_pricing
-- Checkout: https://unitymcptest.clauxel.com/checkout/?utm_source=github&utm_medium=documentation&utm_campaign=unitymcptest_public_docs&utm_content=readme_checkout
-- Support: support@aigeamy.com
-
-## Remote MCP
-
-- Endpoint: https://unitymcptest.clauxel.com/mcp
+- Website: https://unitymcptest.clauxel.com/?utm_source=github&utm_medium=directory&utm_campaign=sbl202605r27
+- MCP endpoint: https://unitymcptest.clauxel.com/mcp
 - Server card: https://unitymcptest.clauxel.com/server-card.json
 - Registry name: `com.clauxel.unitymcptest/unitymcptest-mcp`
-- Tools: `run_unity_playmode_check`, `invoke_unity_method`, `summarize_unity_failure`, `export_unity_receipt`
 
-## Reading Order
+## Access
 
-1. [Quickstart](guide/quickstart.md)
-2. [Evaluation guide](guide/evaluation.md)
-3. [Checkout and pricing](guide/checkout-and-pricing.md)
-4. [Workflow notes](features/workflow.md)
-5. [Security model](features/security-model.md)
-6. [Public link reference](reference/links.md)
+This is a paid hosted remote MCP. Production calls require a bearer token issued from the product website.
 
-## Audience
+```http
+Authorization: Bearer <token>
+```
 
-AI product teams, operations leads, workflow owners, and technical evaluators.
+Unauthenticated browser visits to `/mcp` return a clear JSON error instead of internal details.
 
-## Capabilities
+## Tools
 
-- Streamable HTTP MCP endpoint
-- Bearer-token access for production calls
-- Structured tool-call output
-- Receipt-oriented evidence export
-- Public server card and registry metadata
-- MCP tool: run_unity_playmode_check
-- MCP tool: invoke_unity_method
-- MCP tool: summarize_unity_failure
-- MCP tool: export_unity_receipt
+- `run_unity_playmode_check`
+- `invoke_unity_method`
+- `summarize_unity_failure`
+- `export_unity_receipt`
 
-## Public-Safe Boundary
+## Quick Start
 
-This repository contains documentation only. It does not contain production source code, credentials, payment configuration, Cloudflare configuration, customer records, private analytics, or local machine paths.
+1. Open the website and choose a plan.
+2. Create or request an API token.
+3. Add the endpoint to an MCP client that supports Streamable HTTP remote servers.
+4. Send JSON-RPC requests with the bearer token.
+
+## Useful Links
+
+- Product page: https://unitymcptest.clauxel.com/?utm_source=github&utm_medium=directory&utm_campaign=sbl202605r27
+- Pricing: https://unitymcptest.clauxel.com/?utm_source=github&utm_medium=directory&utm_campaign=sbl202605r27#pricing
+- Server card: https://unitymcptest.clauxel.com/server-card.json
+- MCP endpoint: https://unitymcptest.clauxel.com/mcp
+
+## Status
+
+This repository is a public documentation and directory-submission reference for the hosted service. It does not contain the private production source code.
