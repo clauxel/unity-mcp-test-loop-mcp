@@ -1,0 +1,204 @@
+{
+  "name": "unitymcptest",
+  "title": "Unity MCP Test Loop",
+  "description": "A paid remote MCP for Unity-MCP, built to return verdicts, receipts, usage logs, and audit-ready JSON for agent and CI workflows.",
+  "version": "1.0.0",
+  "websiteUrl": "https://unitymcptest.clauxel.com/",
+  "documentationUrl": "https://unitymcptest.clauxel.com/mcp/",
+  "endpointUrl": "https://unitymcptest.clauxel.com/mcp",
+  "transport": "streamable-http",
+  "authentication": {
+    "type": "bearer",
+    "required": true,
+    "header": "Authorization",
+    "format": "Bearer <paid-token>"
+  },
+  "paidAccess": {
+    "required": true,
+    "checkoutUrl": "https://unitymcptest.clauxel.com/api/agent-checkout",
+    "tokenStatusUrl": "https://unitymcptest.clauxel.com/api/mcp-token/status",
+    "tokenClaimUrl": "https://unitymcptest.clauxel.com/api/mcp-token/claim",
+    "defaultPlan": "studio",
+    "pricing": [
+      {
+        "id": "indie",
+        "name": "Indie",
+        "monthlyUsd": 39
+      },
+      {
+        "id": "studio",
+        "name": "Studio",
+        "monthlyUsd": 149
+      },
+      {
+        "id": "production",
+        "name": "Production",
+        "monthlyUsd": 499
+      }
+    ]
+  },
+  "tools": [
+    {
+      "name": "run_unity_playmode_check",
+      "description": "Unity MCP Test Loop run unity playmode check",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "string",
+            "description": "Workflow sample, schema, policy fixture, or agent output."
+          },
+          "context": {
+            "type": "string",
+            "description": "Optional review context."
+          }
+        },
+        "required": [
+          "sample"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          },
+          "usage_units": {
+            "type": "integer"
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "invoke_unity_method",
+      "description": "Unity MCP Test Loop invoke unity method",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "string",
+            "description": "Workflow sample, schema, policy fixture, or agent output."
+          },
+          "context": {
+            "type": "string",
+            "description": "Optional review context."
+          }
+        },
+        "required": [
+          "sample"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          },
+          "usage_units": {
+            "type": "integer"
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "summarize_unity_failure",
+      "description": "Unity MCP Test Loop summarize unity failure",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "string",
+            "description": "Workflow sample, schema, policy fixture, or agent output."
+          },
+          "context": {
+            "type": "string",
+            "description": "Optional review context."
+          }
+        },
+        "required": [
+          "sample"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          },
+          "usage_units": {
+            "type": "integer"
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "export_unity_receipt",
+      "description": "Unity MCP Test Loop export unity receipt",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "string",
+            "description": "Workflow sample, schema, policy fixture, or agent output."
+          },
+          "context": {
+            "type": "string",
+            "description": "Optional review context."
+          }
+        },
+        "required": [
+          "sample"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          },
+          "usage_units": {
+            "type": "integer"
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "inputOutputSummary": "Each tool accepts structured workflow evidence and returns verdict, reason, receipt_id, usage_units, and next_action JSON.",
+  "supportEmail": "support@aigeamy.com"
+}
