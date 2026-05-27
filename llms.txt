@@ -1,0 +1,15 @@
+# Unity MCP Test Loop
+
+Unity MCP Test Loop is a hosted remote MCP for Unity-MCP.
+
+Website: https://unitymcptest.clauxel.com/
+Docs pattern reference: https://github.com/clauxel/MiroFish
+Primary keyword: Unity-MCP
+Type: MCP
+Default plan: studio
+MCP endpoint: https://unitymcptest.clauxel.com/mcp
+Server card: https://unitymcptest.clauxel.com/server-card.json
+Registry name: com.clauxel.unitymcptest/unitymcptest-mcp
+Tools: run_unity_playmode_check, invoke_unity_method, summarize_unity_failure, export_unity_receipt
+
+Public boundary: docs-only repository; no production source code or secrets.
